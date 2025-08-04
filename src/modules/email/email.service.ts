@@ -26,6 +26,7 @@ export class EmailService {
     },
   });
 
+
   async sendVerificationEmail(user: User): Promise<void> {
     const verificationUrl = `${this.emailConfig.BASE_URL}/users/verify-email?token=${user.emailVerificationToken}`;
 
@@ -48,6 +49,8 @@ If you didn't request this account, please ignore this email.
 © ${new Date().getFullYear()} ${this.appName}
 Support: ${this.supportEmail}
 `;
+
+  console.log(emailText);  
 
     const mailOptions = {
       from: `"${this.appName}" <${this.emailConfig.EMAIL_USER}>`,
