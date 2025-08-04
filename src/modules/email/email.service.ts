@@ -51,7 +51,7 @@ Support: ${this.supportEmail}
 `;
 
   
-
+console.log(emailText)
     const mailOptions = {
       from: `"${this.appName}" <${this.emailConfig.EMAIL_USER}>`,
       to: user.email,
