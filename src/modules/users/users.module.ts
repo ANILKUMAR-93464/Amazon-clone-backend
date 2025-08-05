@@ -14,7 +14,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { UsersService } from './users.service';
 import { UsersController } from './users.controller';
 import { User } from 'src/database/entities/user.entity';
-import { EmailModule } from '../email/email.module';
+import { EmailModule } from '../../services/email/email.module';
 import { AuthModule } from '../auth/auth.module';
 
 

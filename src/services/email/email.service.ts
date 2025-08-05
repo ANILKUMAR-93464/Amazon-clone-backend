@@ -1,8 +1,8 @@
-// email.service.ts
 import { Injectable } from '@nestjs/common';
 import * as nodemailer from 'nodemailer';
 import * as config from 'config';
 import { User } from 'src/database/entities/user.entity';
+
 
 @Injectable()
 export class EmailService {
@@ -13,19 +13,17 @@ export class EmailService {
 
     
   private transporter = nodemailer.createTransport({
-    service: this.emailConfig.SERVICE,
-    host: this.emailConfig.HOST,
-    port: this.emailConfig.PORT,
+    service: this.emailConfig.SERVICE, 
+    host: this.emailConfig.HOST,    // host
+    port: this.emailConfig.PORT,    // port 
     secure: this.emailConfig.SECURE,
     auth: {
       user: this.emailConfig.EMAIL_USER,
       pass: this.emailConfig.EMAIL_PASSWORD,
     },
-    tls: {
-      rejectUnauthorized: this.emailConfig.TLS_REJECT_UNAUTHORIZED,
-    },
+   
   });
-
+ 
 
   async sendVerificationEmail(user: User): Promise<void> {
     const verificationUrl = `${this.emailConfig.BASE_URL}/users/verify-email?token=${user.emailVerificationToken}`;
@@ -49,9 +47,9 @@ If you didn't request this account, please ignore this email.
 © ${new Date().getFullYear()} ${this.appName}
 Support: ${this.supportEmail}
 `;
+ 
+console.log(emailText);
 
-  
-console.log(emailText)
     const mailOptions = {
       from: `"${this.appName}" <${this.emailConfig.EMAIL_USER}>`,
       to: user.email,

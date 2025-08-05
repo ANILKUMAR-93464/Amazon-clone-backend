@@ -19,6 +19,7 @@ export class UpdateUserDto extends PartialType(CreateUserDto) {
   })
   email?: string;
 
+
   @ApiProperty({
     example: 'newSecurePassword123',
     description: 'The updated password of the user (min 8 characters)',
@@ -27,6 +28,7 @@ export class UpdateUserDto extends PartialType(CreateUserDto) {
   })
   password?: string;
 
+  
   @ApiProperty({
     example: 'John Smith',
     description: 'The updated full name of the user',

@@ -21,9 +21,9 @@ const dataSourceOptions: DataSourceOptions = {
   // migrations: [join(__dirname, '../../database/migrations/*{.ts,.js}')],
   // migrationsTableName: "migrations",
    
-  logging: false,
+  logging: false, 
   synchronize: false
 };
 
 const dataSource = new DataSource(dataSourceOptions);
-export default dataSource;
+export default dataSource; 

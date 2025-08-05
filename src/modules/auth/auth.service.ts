@@ -44,6 +44,17 @@ export class AuthService {
     
     const isOldPasswordValid = await bcrypt.compare(changePasswordDto.old_password, user.password)
 
+     if (!isOldPasswordValid) throw new Error('Old password is incorrect');
+
+     if(changePasswordDto.new_password !== changePasswordDto.confirm_password){
+      throw new Error(`New Password and confirm password doesn't match`);
+     }
+
+  user.password = await changePasswordDto.new_password;
+  return this.usersService.save(user);  
+
+
+
   }
 
 }

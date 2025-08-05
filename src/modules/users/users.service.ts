@@ -7,7 +7,7 @@ import { v4 as uuidv4 } from 'uuid';
 import * as config from 'config';
 
 import { CreateUserDto } from './dto/create-user.dto';
-import { EmailService } from '../email/email.service'; 
+import { EmailService } from '../../services/email/email.service'; 
 import { User } from 'src/database/entities/user.entity';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { InvalidTokenException } from './exceptions/invalid-token.exception';
@@ -117,14 +117,18 @@ export class UsersService {
  
     // Merge the updates with the existing user
     const updatedUser = this.usersRepository.merge(user, updateUserDto);
-    
     return this.usersRepository.save(updatedUser);
   }
 
+  
   async remove(id: number): Promise<void> {
     const result = await this.usersRepository.delete(id);
     if (result.affected === 0) {
       throw new NotFoundException(`User with ID ${id} not found`);
     }
   }
+
+  async save(user: User): Promise<User> {
+  return this.usersRepository.save(user);
+}
 }
