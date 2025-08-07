@@ -6,8 +6,7 @@ database:
   password: Anilkumar@1423
   database: amazon_clone_backend
   
-secret: 
-  key: ANIL.@1423$ANIL.@1423$ANIL.@1423
+
 
 port: 3000
 
@@ -24,4 +23,3 @@ email:
 
 secretKey:
   secret: ANIL.@1423-ANIL.@1423-ANIL.@1423
-

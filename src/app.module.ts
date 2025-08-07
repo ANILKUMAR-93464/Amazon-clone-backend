@@ -1,20 +1,49 @@
+// import { Module } from '@nestjs/common';
+// import { AppController } from './app.controller';
+// import { AppService } from './app.service';
+// import { TypeOrmModule } from '@nestjs/typeorm';
+// import dataSource from './config/typeorm-config';
+// import { UsersModule } from './modules/users/users.module';
+// import { AuthModule } from './modules/auth/auth.module';
+// import { ConfigModule } from '@nestjs/config';
+// import { CategoriesModule } from './modules/categories/categories.module';
+// import { ProductsModule } from './modules/products/products.module';
+
+
+
+// @Module({
+//   imports: [ConfigModule.forRoot({
+//     isGlobal:true
+//   }),
+//     TypeOrmModule.forRoot({ ...dataSource.options }), 
+//     UsersModule, AuthModule, CategoriesModule,ProductsModule
+//   ], 
+//   controllers: [AppController],
+//   providers: [AppService],
+// })
+// export class AppModule {}
+
+// src/app.module.ts
 import { Module } from '@nestjs/common';
+import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { TypeOrmModule } from '@nestjs/typeorm';
 import dataSource from './config/typeorm-config';
 import { UsersModule } from './modules/users/users.module';
 import { AuthModule } from './modules/auth/auth.module';
 import { ConfigModule } from '@nestjs/config';
+import { CategoriesModule } from './modules/categories/categories.module';
+import { ProductsModule } from './modules/products/products.module';
 
-
-@Module({
-  imports: [ConfigModule.forRoot({
-    isGlobal:true
-  }),
-    TypeOrmModule.forRoot({ ...dataSource.options }), 
-    UsersModule, AuthModule,
-  ], 
+@Module({ 
+  imports: [
+    ConfigModule.forRoot({ isGlobal: true }),
+    TypeOrmModule.forRoot({ ...dataSource.options }),
+    UsersModule,
+    AuthModule,
+    CategoriesModule, // Categories before Products
+    ProductsModule,
+  ],
   controllers: [AppController],
   providers: [AppService],
 })

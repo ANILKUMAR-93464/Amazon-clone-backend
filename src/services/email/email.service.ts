@@ -48,7 +48,7 @@ If you didn't request this account, please ignore this email.
 Support: ${this.supportEmail}
 `;
  
-console.log(emailText);
+
     const mailOptions = {
       from: `"${this.appName}" <${this.emailConfig.EMAIL_USER}>`,
       to: user.email,
@@ -58,4 +58,3 @@ console.log(emailText);
     await this.transporter.sendMail(mailOptions);
   }
 }
-

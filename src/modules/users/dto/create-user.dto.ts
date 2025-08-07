@@ -35,6 +35,7 @@ export class CreateUserDto {
     description: 'The phone number of the user',
     required: false
   })
+
   @IsOptional()
   @IsString()
   phoneNumber?: string;

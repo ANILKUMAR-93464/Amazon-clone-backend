@@ -10,7 +10,7 @@ import { CreateUserDto } from './dto/create-user.dto';
 import { EmailService } from '../../services/email/email.service'; 
 import { User } from 'src/database/entities/user.entity';
 import { UpdateUserDto } from './dto/update-user.dto';
-import { InvalidTokenException } from './exceptions/invalid-token.exception';
+import { InvalidTokenException } from '../../exceptions/invalid-token.exception';
 
 @Injectable()
 export class UsersService {

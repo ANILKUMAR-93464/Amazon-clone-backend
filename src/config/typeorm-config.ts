@@ -16,10 +16,6 @@ const dataSourceOptions: DataSourceOptions = {
   entities: [join(__dirname, "../", "database", "entities", '**', '*.entity.{ts,js}')],
   migrations: [join(__dirname, "../", "database", 'migrations/*{.ts,.js}')],
   migrationsTableName: "migrations",
-
-  //  entities: [join(__dirname, '../../**/*.entity.{ts,js}')],
-  // migrations: [join(__dirname, '../../database/migrations/*{.ts,.js}')],
-  // migrationsTableName: "migrations",
    
   logging: false, 
   synchronize: false

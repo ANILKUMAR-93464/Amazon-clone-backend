@@ -15,7 +15,7 @@ async function bootstrap() {
 
   // Swagger configuration
   const swaggerConfig = new DocumentBuilder()
-    .setTitle('Amazon Clone API')
+    .setTitle('Amazon Clone Backend API')
     .setDescription('API documentation')
     .setVersion('1.0')
     .addBearerAuth()
